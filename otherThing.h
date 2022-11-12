@@ -1,3 +1,7 @@
+/*
+    機會 與 命運，後有情境贛話 選擇題
+ */
+
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -72,7 +76,7 @@ void result(short option, bool choose_flag /* 事件選擇 */) {
         }
     }
     else {
-        // 
+        /* 命運 */
     }
 }
 
