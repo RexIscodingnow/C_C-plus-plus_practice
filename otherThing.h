@@ -65,7 +65,7 @@ void result(short option, bool choose_flag /* ¨Æ¥ó¿ï¾Ü */) {
                     break;
 
                 default:
-                    cout<<""<<endl;
+                    cout<<"ÕÙ¼K~ ¶Ãµª³á~~"<<endl;
                     flag = true;
                     break;
             }
