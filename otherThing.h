@@ -3,6 +3,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include <time.h>
 
@@ -10,6 +11,8 @@ using namespace std;
 
 void chance_or_destiny(int score);
 void result(short option, bool choose_flag /* 事件選擇 */);
+int roman_num(string s);
+
 
 void chance_or_destiny(int score) {
     srand(time(0));
@@ -79,5 +82,33 @@ void result(short option, bool choose_flag /* 事件選擇 */) {
         /* 命運 */
     }
 }
+
+
+int roman_num(string s) {
+    int size = s.size();
+    int num = 0;
+
+    // switch (s[0]) {
+    //     case 'I': num += 1; break;
+    //     case 'V': num += 5; break;
+    //     case 'X': num += 10; break;
+    //     case 'L': num += 50; break;
+    //     case 'C': num += 100; break;
+    //     case 'D': num += 500; break;
+    //     case 'M': num += 1000; break;
+    // }
+
+    // for (int i = 0; i < size; i++) {
+
+    // }
+
+
+    return num;
+}
+
+
+
+
+
 
 

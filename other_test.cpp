@@ -25,48 +25,53 @@ int main(int argc, char const *argv[]) {
     
     // 使用了，命名空間 std
     // cout<<"hello"<<endl;
+
+    // string s;
+    // cout<<"roman number => ";
+    // cin>>s;
+    // cout<<roman_num(s)<<endl;
     
-    int n, m;
-    bool running = false;
-    char str[20];
+    // int n, m;
+    // bool running = false;
+    // char str[20];
 
-    cout<<"排列組合 C，輸入: \"comb\", \"C\"(大小寫都可) "<<endl<<"排列組合 P，輸入: \"perm\", \"P\"(大小寫都可) "<<endl;
-    cout<<"機會或命運 (Chance or Destiny)，輸入: \"Chance or Destiny\", \"run dice\", \"dice\""<<endl<<endl;
+    // cout<<"排列組合 C，輸入: \"comb\", \"C\"(大小寫都可) "<<endl<<"排列組合 P，輸入: \"perm\", \"P\"(大小寫都可) "<<endl;
+    // cout<<"機會或命運 (Chance or Destiny)，輸入: \"Chance or Destiny\", \"run dice\", \"dice\""<<endl<<endl;
     
-    while (running != true) {
-        cout<<"=> ";
-        gets(str);
-        if (!strcmp(str, "comb") || !strcmp(str, "c") || !strcmp(str, "C")) {
-            running = true;
-            cout<<"排列組合，運算代號 C"<<endl<<"n (上) 取 m (下)"<<endl;
-            cout<<"n = ";
-            cin>>n;
-            cout<<"m = ";
-            cin>>m;
+    // while (running != true) {
+    //     cout<<"=> ";
+    //     gets(str);
+    //     if (!strcmp(str, "comb") || !strcmp(str, "c") || !strcmp(str, "C")) {
+    //         running = true;
+    //         cout<<"排列組合，運算代號 C"<<endl<<"n (上) 取 m (下)"<<endl;
+    //         cout<<"n = ";
+    //         cin>>n;
+    //         cout<<"m = ";
+    //         cin>>m;
 
-            comb(n, m);
-        }
-        else if (!strcmp(str, "perm") || !strcmp(str, "p") || !strcmp(str, "P")) {
-            running = true;
-            cout<<"排列組合，運算代號 P"<<endl<<"n (上) 取 m (下)"<<endl;
-            cout<<"n = ";
-            cin>>n;
-            cout<<"m = ";
-            cin>>m;
+    //         comb(n, m);
+    //     }
+    //     else if (!strcmp(str, "perm") || !strcmp(str, "p") || !strcmp(str, "P")) {
+    //         running = true;
+    //         cout<<"排列組合，運算代號 P"<<endl<<"n (上) 取 m (下)"<<endl;
+    //         cout<<"n = ";
+    //         cin>>n;
+    //         cout<<"m = ";
+    //         cin>>m;
 
-            perm(n, m);
-        }
-        else if (!strcmp(str, "Chance or Destiny") || !strcmp(str, "run dice") || !strcmp(str, "dice")) {
-            running = true;
-            int score;
-            cout<<"輸入分數 => ";
-            cin>>score;
-            chance_or_destiny(score);
-        }
-        else {
-            running = false;
-        }
-    }
+    //         perm(n, m);
+    //     }
+    //     else if (!strcmp(str, "Chance or Destiny") || !strcmp(str, "run dice") || !strcmp(str, "dice")) {
+    //         running = true;
+    //         int score;
+    //         cout<<"輸入分數 => ";
+    //         cin>>score;
+    //         chance_or_destiny(score);
+    //     }
+    //     else {
+    //         running = false;
+    //     }
+    // }
 
     return 0;
 }
