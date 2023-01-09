@@ -102,4 +102,19 @@
 
     13. 指標的陣列
         。 宣告
+                1 | int *array[10];
+                2 | 
+                3 | for (int i = 0; i < 10; i++) {
+                4 |     array[i] = new int;
+                5 |     *array[i] = i + 1;
+                6 | }
+
         。 存取值
+                1 | // 上述宣告的 int *array[10];
+                2 | // 作存取值
+                3 | 
+                4 | for (int i = 0; i < 10; i++) {
+                5 |     cout<<*array[i]<<endl;
+                6 | }
+
+        。 與 int *array; 的不同之處
