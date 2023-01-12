@@ -1,0 +1,52 @@
+結構 (Struct)
+
+    1. Struct 宣告 與 使用
+        。 **註: 結構是可以放入不同的型別變數
+
+        。 struct 的宣告
+                    1 | struct name {
+                    2 |     type member_1;
+                    3 |     type member_2;
+                    4 |     ...
+                    5 | };
+
+        。 struct 的變數
+                第 1 種    
+                    1 | struct name {
+                    2 |     type memberName_1;
+                    3 |     type memberName_2;
+                    4 |     ...
+                    5 | } variableName_1, variableName_2;
+
+                第 2 種
+
+                    1 | struct structName variableName;
+
+        。 成員變數使用
+                存取 struct 變數使用 . 號
+                    
+                    1 | variableName.memberName;
+
+        。 struct 的指標
+                第 1 種
+                    1 | struct name {
+                    2 |     type memberName_1;
+                    3 |     type memberName_2;
+                    4 |     ...
+                    5 | } *pointer_1, pointer_2;
+
+                第 2 種
+
+                    1 | struct structName * pointerName = new struct structName;
+
+        。 成員指標使用
+                存取 struct 指標使用 -> 號
+                    
+                    1 | pointer_1->memberName_1;
+                    2 | 
+                    3 | pointer_2->memberName_1;
+
+    2. 函式導向
+        。 參數
+
+        。 返回型別
