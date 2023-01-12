@@ -4,8 +4,13 @@
 using namespace std;
 
 
+#include "struct.h"
+
+
+
+/* 其他函式 */
 void printStruct_1(string time, string name, bool waterProof, short id);
-void printStruct_2(int id, char *name, int score);
+
 
 /* 結構成員宣告 */
 struct Phone {
@@ -15,33 +20,37 @@ struct Phone {
     short id;
 };
 
-struct student {
-    int id;
-    char *name;
-    int score;
-};
 
+struct Circle {
+    int radius;
+    int height;
+    double girth;
+    double area;
+    double volume;
+} circle_1, circle_2,
+  *pointer_1, *pointer_2;
 
 
 int main(int argc, char const *argv[]) {
-    string time, waterProof;
-    char name[50];
-    short phone_id;
-    bool is_waterProof;
-    cout<<"生產時間: ";
-    cin>>time;
-    cout<<"品名: ";
-    gets(name);
-    cout<<"防水性 (Y/N): ";
-    cin>>waterProof;
-    cout<<"id (編號): ";
-    cin>>phone_id;
-    is_waterProof = waterProof == "Y"? true: false;
 
-    printStruct_1(time, (string) name, is_waterProof, phone_id);
+    cout<<"-----------------------"<<endl;
+    cout<<"Variable"<<endl;
+    circle_1.radius = 2;
+    cout<<circle_1.radius<<endl;
+    circle_2.radius = 3;
+    cout<<circle_2.radius<<endl;
+
+    cout<<"-----------------------"<<endl;
+    cout<<"Pointer"<<endl;
+    pointer_1 = new Circle;
+    pointer_1->radius = 50;
+    cout<<pointer_1->radius<<endl;
+    pointer_2 = new Circle;
+    pointer_2->radius = 12;
+    cout<<pointer_2->radius<<endl;
 
 
-    system("pause");
+    // system("pause");
     return 0;
 }
 
@@ -79,11 +88,6 @@ void printStruct_1(string time, string name, bool waterProof, short id) {
 }
 
 
-void printStruct_2(int id, char *name, int score) {
-    student Rex;
-    Rex.id = id;
-    // Rex.name -> name;
-}
 
 
 
