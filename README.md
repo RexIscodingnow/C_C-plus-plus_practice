@@ -2,7 +2,7 @@
 
 ## 目前進度  =>  指標 與 參考
 
-# 當前學習項目: 資料結構
+# 當前學習項目 1: 資料結構
 ## 目前學習章節進度
   1. array (暫時微調)
   2. list
@@ -28,3 +28,14 @@
         非暴力解法
         2. Binary Search (Recursion and Iterative)
         3. Jumps Search
+
+# 當前學習項目 2: 演算法
+## Note 1: Most learn and test for Algorithm are Implemented in Python for first (or Not).
+## Note 2: If you have not seen the target Implementation File. Please visit [python_practice repo](https://github.com/RexIscodingnow/python_practice.git) to check had existed here.  If it isn't find you want, I forgot to upload.
+
+## Algorithm Chapters:
+
+  1. Divide and Conquer (各個擊破法 / 分治法)
+  
+  
+  2. Dynamic Programming (動態規劃) -- 待續
