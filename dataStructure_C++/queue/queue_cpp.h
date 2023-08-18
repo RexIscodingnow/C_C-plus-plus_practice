@@ -75,14 +75,14 @@ public:
 };
 
 
-// 環狀 queue
+// 環狀 queue: 實際使用 N - 1 的空間
 template<typename dtype>
 class Queue_Cycle {
 private:
     int size;
     dtype *queue;
-    int rear = -1;
-    int front = -1;
+    int rear = 0;
+    int front = 0;
 
 public:
     Queue_Cycle(int size) {
@@ -99,8 +99,11 @@ public:
         if (this->isFull()) {
             return;
         }
+
         this->rear++;
-        this->queue[(this->rear + 1) % this->size] = data;
+        this->rear %= this->size;
+        // cout<<this->rear<<endl;
+        this->queue[this->rear] = data;
     }
 
     // 拿出 queue
@@ -110,12 +113,16 @@ public:
         }
 
         this->front++;
-        dtype temp = this->queue[(this->front + 1) % this->size];
+        this->front %= this->size;
+        // cout<<this->front<<endl;
+
+        dtype temp = this->queue[this->front];
+        this->queue[this->front] = dtype();
         return temp;
     }
 
     bool isEmpty() {
-        return this->front == this->rear;
+        return this->front % this->size == this->rear % this->size;
     }
 
     bool isFull() {
@@ -123,10 +130,75 @@ public:
         // 會相差一格距離
         // 也就是說，存到滿的時候，會有一個位置是空的
         // 那個空位就是 front 所在的位置
-        return (this->rear + 1) == this->front;
-        // return (this->rear + 1) % this->size == this->front;
+        return (this->rear + 1) % this->size == this->front % this->size;
     }
 };
 
+
+
+// 環狀 Queue: 使用到 N 個空間 (試做)
+template<typename T>
+class CircularQueue {
+private:
+    T *queue;
+    int size;
+    int rear = 0;
+    int front = 0;
+    int action = 0;   // 操作狀態，加入資料: 1 ; 刪除資料: 0
+
+public:
+    CircularQueue(int size) {
+        this->size = size;
+        this->queue = new T[size];
+    }
+
+    ~CircularQueue() {
+        delete[] this->queue;
+    }
+    
+    // 加入
+    void add(T data) {
+        if (this->isFull()) {
+            return;
+        }
+
+        this->action = 1;
+
+        this->rear++;
+        this->rear %= this->size;
+        this->queue[this->rear] = data;
+    }
+
+    T del() {
+        if (this->isEmpty()) {
+            return T();
+        }
+
+        this->action = 0;
+
+        this->front++;
+        this->front %= this->size;
+        T temp = this->queue[this->front];
+        this->queue[this->front] = T();
+        return temp;
+    }
+
+
+    bool isEmpty() {
+        return ((this->rear % this->size == this->front % this->size) && this->action == 0);
+    }
+
+    bool isFull() {
+        return ((this->rear % this->size == this->front % this->size) && this->action == 1);
+    }
+};
+
+
+
+// 雙向 Queue (Deque)
+template<typename T>
+class Queue_DoubleEnd {
+    // 
+};
 
 

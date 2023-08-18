@@ -47,6 +47,38 @@
                     3 | pointer_2->memberName_1;
 
     2. 函式導向
+
         。 參數
+            統一使用 Circle 做示例
+                1 | struct Circle {
+                2 |     int radius;
+                3 |     int height;
+                4 |     double girth;
+                5 |     double area;
+                6 |     double volume;
+                7 | }
+
+            1. 變數
+                1 | double circle_area(Circle c) {
+                2 |     return c.radius * c.radius * 3.14;
+                3 | }
+            
+            2. 指標
+                1 | void set_radius(struct Circle *circle, int radius) {
+                2 |     if (radius > 0) {
+                3 |         // cout<<radius<<endl;
+                4 |         circle->radius = radius;
+                5 |     } else {
+                6 |         circle->radius = 1;
+                7 |     }
+                8 | }
 
         。 返回型別
+
+            **註: 將 struct 的資料，作為函式返回型別
+
+            1. struct 型別
+                
+
+            2. struct 指標型別
+            3. struct 參考型別

@@ -1,0 +1,20 @@
+C++ 類別 (class) 層級
+
+    1. 宣告 class 與 結構樣式
+        。 宣告
+            
+            在 class 宣告的結尾要用 ; 號結束
+
+            1 | // 宣告 Circle 的 class 
+            2 | class Circle {
+            3 |     public:
+            4 |         int radius = 0;
+            5 |         int girth = 0;
+            6 |         int area = 0;
+            7 | };
+
+
+
+
+
+

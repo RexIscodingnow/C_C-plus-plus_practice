@@ -1,5 +1,5 @@
 {
-  "C_Cpp_Runner.cCompilerPath": "C:/Program Files/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/g++.exe",
+  "C_Cpp_Runner.cCompilerPath": "C:/MinGW/bin/g++.exe",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
@@ -67,7 +67,16 @@
     "sstream": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "iterator": "cpp",
+    "numeric": "cpp",
+    "bit": "cpp",
+    "ctime": "cpp",
+    "functional": "cpp",
+    "random": "cpp",
+    "stack": "cpp",
+    "list": "cpp",
+    "hash_map": "cpp"
   },
   "files.encoding": "cp950"
 }

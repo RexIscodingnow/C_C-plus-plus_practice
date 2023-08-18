@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/User/c++",
-      "program": "c:/Users/User/c++/build/Debug/outDebug",
+      "cwd": "c:/Users/User/C++/dataStructure_C++/array",
+      "program": "c:/Users/User/C++/dataStructure_C++/array/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

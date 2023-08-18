@@ -1,0 +1,41 @@
+C++ 日期與時間 的運算
+
+    1. 引入程式庫
+        。 #include <ctime>
+
+    2. 宣告與取得 現在的時間
+        。 宣告
+            1. time_t variableName (time_t *timer)
+        
+        。 time_t
+            取得一個 time_t 型別的值，從 1970 年 1 月 1 日 00:00 UTC 開始算起
+        
+        。 轉換
+            char *ctime(const time_t *timer) 返回 C 語言型態的字串
+
+    3. 格式化日期時間
+        。 struct tm
+                一個包含 "日期 與 時間的結構"，有 9 個型別為 int 的成員變數
+                    
+                    1 | struct tm {
+                    2 |     int tm_sec;   // 秒，正常範圍從 0 到 59，但允許至 61
+                    3 |     int tm_min;   // 分，範圍從 0 到 59
+                    4 |     int tm_hour;  // 小時，範圍從 0 到 23
+                    5 |     int tm_mday;  // 一月中的第几天，範圍從 1 到 31
+                    6 |     int tm_mon;   // 月，範圍從 0 到 11
+                    7 |     int tm_year;  // 自 1900 年起的年數
+                    8 |     int tm_wday;  // 一周中的第幾天，範圍從 0 到 6，從星期日算起
+                    9 |     int tm_yday;  // 一年中的第幾天，範圍從 0 到 365，從 1 月 1 日算起
+                   10 |     int tm_isdst; // 夏令時
+                   11 | };
+
+        。 struct tm *localtime(const time_t *timer)
+                使用 timer 指標值，來把 tm 結構中所有的值填滿，這是一個呈現出對應 "區域時區的時間"
+
+        。 strftime(char *message_array, array_length, "format character", const tm)
+                把日期時間，格式化成字串型別
+
+                由左至右之 參數型態: 
+                    (char 型別指標陣列(C 語言型態的字串), char 陣列長度, 格式化字串, tm 結構內的資料(整個丟進來));
+
+

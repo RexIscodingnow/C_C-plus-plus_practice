@@ -27,6 +27,8 @@ using namespace std;
 #include "stack/stack_cpp.h"
 // 佇列
 #include "queue/queue_cpp.h"
+// 樹狀結構
+#include "tree/binary_tree.h"
 
 
 // 學生資料
@@ -74,24 +76,48 @@ void printStr(const char *str) {
 
 
 int main(int argc, char const *argv[]) {
-    const int size = 5;
-    Queue_Cycle<int> queue_circle(size);
+    // const int row = 3;
+    // const int col = 3;
 
-    for (int i = 0; i < 5; i++) {
-        queue_circle.enqueue(i);
-    }
+    // VectorArray<int> arr(row, col);
+    // arr.arange(11, false);
+    // arr.print();
 
-    for (int i = 0; i < size; i++) {
-        cout<<queue_circle.dequeue()<<endl;
-    }
+    Queue_Cycle<int> queue_cycle(5);
+
+    // for (int i = 0; i < 5; i++) {
+    //     queue_cycle.enqueue(i+1);
+    // }
+
+    // cout<<"--------------"<<endl;
+    // for (int i = 0; i < 5; i++) {
+    //     cout<<queue_cycle.dequeue()<<endl;
+    // }
+
+    // CircularQueue<int> circular_queue(5);
+
+    // for (int i =0 ; i < 5; i++) {
+    //     circular_queue.add(i+1);
+    // }
+
+    // circular_queue.add(988);
+
+    // for (int i = 0; i < 5; i++) {
+    //     cout<<circular_queue.del()<<endl;
+    // }
+
+    // circular_queue.add(988);
+    // cout<<circular_queue.del()<<endl;
+
+
+    // BinarySearchTree<int> btree;
+
+    // for (int i = 0; i < 10; i++) {
+    //     btree.addNode(i);
+    // }
+
+    // btree.pre_order();
     
-    for (int i = 5; i < 10; i++) {
-        queue_circle.enqueue(i);
-    }
-
-    for (int i = 0; i < size; i++) {
-        cout<<queue_circle.dequeue()<<endl;
-    }
 
     return 0;
 }
