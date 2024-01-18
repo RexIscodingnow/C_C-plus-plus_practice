@@ -76,7 +76,18 @@
     "random": "cpp",
     "stack": "cpp",
     "list": "cpp",
-    "hash_map": "cpp"
+    "hash_map": "cpp",
+    "complex": "cpp",
+    "filesystem": "cpp",
+    "any": "cpp",
+    "forward_list": "cpp",
+    "unordered_set": "cpp",
+    "future": "cpp",
+    "shared_mutex": "cpp",
+    "thread": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "variant": "cpp"
   },
   "files.encoding": "cp950"
 }

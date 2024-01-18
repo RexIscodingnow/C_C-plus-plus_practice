@@ -76,14 +76,19 @@ void printStr(const char *str) {
 
 
 int main(int argc, char const *argv[]) {
+
+    vector<int> inner(3, 0);
+    vector<vector<int>> arr(5, inner);
+
+    print_vector<int>(arr);
+
+
     // const int row = 3;
     // const int col = 3;
 
     // VectorArray<int> arr(row, col);
     // arr.arange(11, false);
     // arr.print();
-
-    Queue_Cycle<int> queue_cycle(5);
 
     // for (int i = 0; i < 5; i++) {
     //     queue_cycle.enqueue(i+1);

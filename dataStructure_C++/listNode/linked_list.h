@@ -80,8 +80,10 @@ void linkedList_Example() {
 // 印 單向鏈結串列 (單個欄位)
 void printNode(linkedList *current) {
     while (current != NULL) {
-        cout<<"data: "<<current -> value<<endl;
-        current = current -> next;
+        // cout<<"data: "<<current -> value<<endl;
+        // current = current -> next;
+        cout<<current->value<<" -> ";
+        current = current->next;
     }
     cout<<endl;
 }
