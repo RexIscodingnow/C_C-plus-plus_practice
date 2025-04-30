@@ -22,21 +22,120 @@
 #include <algorithm>
 #include <vector>
 #include <regex>
+#include <type_traits>
+#include <functional>
 
 
 using namespace std;
 
 
-// template<typename T>
-// int get_number_of_digits(T number) {
-//     if (isalpha())
+
+// int highest_digit(long double n) {
+//     return to_string(n).size();
 // }
 
+// default output: primitive type
+template<typename T>
+auto primitive_t_out = [](const T& a) { cout << a; };
+
+// Type judgment: vector<T>
+template<typename T>
+struct is_vector : false_type {};
+
+template<typename U, typename A>
+struct is_vector<vector<U, A>> : true_type {};
 
 
+string interval_space_str(int n) {
+    string s = "";
+
+    for (int i = 0; i < n; i++) { s += ' '; }
+
+    return s;
+}
+
+
+int highest_digit(long long n) {
+    int digits = 1;
+
+    n = abs(n);
+
+    while (n >= 10) {
+        n /= 10;
+        digits++;
+    }
+
+    return digits;
+}
+
+template<typename T>
+int max_space(vector<vector<T>>& array_2d) {
+    int n_max = 0, n_min = 0;
+
+    for (auto vec : array_2d) {
+        n_max = max(n_max, *max_element(vec.begin(), vec.end()));
+    }
+
+    for (auto vec : array_2d) {
+        n_min = min(n_min, *min_element(vec.begin(), vec.end()));
+    }
+
+    return max(
+        to_string(n_max).size(),
+        to_string(n_min).size()
+    );
+}
+
 // ============================================================================
 // ============================================================================
 // ============================================================================
+
+
+template<typename T, typename Printer>
+enable_if_t<!is_vector<T>::value, void>     // Not vector type
+print_item(const T& x, Printer printer, int indent) {
+    printer(x);
+}
+
+template<typename T, typename Printer>
+enable_if_t<is_vector<T>::value, void>      // It's vector type
+print_item(const T& vec, Printer printer, int indent) {
+    cout << " { ";
+    bool first = true;  // first element
+
+    for (const auto& elem : vec) {
+        if (!first) {
+            cout << ", ";
+        }
+
+        if (is_vector<decay_t<decltype(elem)>>::value) {
+            cout << '\n' << string((indent + 1) * 4, ' ');  // 縮排
+        }
+
+        print_item(elem, printer, indent + 1);
+        first = false;
+    }
+
+    if (is_vector<decay_t<decltype(vec.front())>>::value) {
+        cout << "\n" << string(indent * 2, ' ');    // 回來上一層
+    }
+    cout << " }";
+}
+
+
+/**
+ * @brief print multiple dimension vector
+ * 
+ * @param vec       An any dimension vector
+ * @param printer   A print fnuctor
+ */
+template<typename T, typename Printer>
+void print_vector(vector<T>& vec, Printer printer) {
+    print_item(vec, printer, 0);
+    cout << '\n';
+}
+
+
 
 
 /**
@@ -44,6 +143,7 @@ using namespace std;
  * 
  * @param array_1D 1D vector
  */
+/* 
 template<typename T>
 void print_vector(vector<T>& array_1D) {
     cout<<"{ ";
@@ -62,7 +162,7 @@ void print_vector(vector<T>& array_1D) {
     }
     cout<<endl;
 }
-
+ */
 
 /**
  * @brief print 2 dimensional vector (2D vector)
@@ -71,6 +171,7 @@ void print_vector(vector<T>& array_1D) {
  * @param cut_line 切分之每組數量，附上行號
  * 
  */
+/* 
 template<typename T>
 void print_vector(vector<vector<T>>& array_2D, int cut_line = 0) {
     cout<<"{";
@@ -79,7 +180,7 @@ void print_vector(vector<vector<T>>& array_2D, int cut_line = 0) {
         cout<<"{ }}"<<endl;
         return;
     }
-    
+
     for (int i = 0; i < array_2D.size(); i++) {
         cout << "{ ";
         
@@ -112,7 +213,7 @@ void print_vector(vector<vector<T>>& array_2D, int cut_line = 0) {
     }
     cout<<endl;
 }
-
+ */
 
 
 /**
@@ -150,6 +251,7 @@ void arange(vector<vector<T>>& array_2D, T start = 0, bool _reverse = false) {
 }
 
 
+/* 
 template<typename T>
 void print_vector(vector<vector<vector<T>>>& array_3D) {
     cout << "{" <<endl;
@@ -167,7 +269,7 @@ void print_vector(vector<vector<vector<T>>>& array_3D) {
 
     cout << "}" <<endl;    
 }
-
+ */
 
 /**
  * @brief 遞增給數值
