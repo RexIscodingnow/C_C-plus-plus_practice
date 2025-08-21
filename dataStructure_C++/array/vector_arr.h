@@ -35,6 +35,8 @@ using namespace std;
 // }
 
 // default output: primitive type
+// i.e: int, float, string, ...
+// 
 template<typename T>
 auto primitive_t_out = [](const T& a) { cout << a; };
 
@@ -124,10 +126,25 @@ print_item(const T& vec, Printer printer, int indent) {
 
 
 /**
- * @brief print multiple dimension vector
+ * @brief Print multiple dimension vector.
+ *        By default, primitive data type like `int`, `float` or `char`
+ *        can be printed directly to the terminal using `std::cout << your_data;`.
+ * 
+ * 
+ * @param vec An any dimension vector
+ */
+template<typename T>
+void print_vector(vector<T>& vec) {
+    print_item(vec, primitive_t_out<typename T::value_type>, 0);
+    cout << '\n';
+}
+
+/**
+ * @brief Print multiple dimension vector.
+ *        Provide a custom print function that can be used with any data type.
  * 
  * @param vec       An any dimension vector
- * @param printer   A print fnuctor
+ * @param printer   A print fnuction
  */
 template<typename T, typename Printer>
 void print_vector(vector<T>& vec, Printer printer) {
